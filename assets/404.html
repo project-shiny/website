@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Not Found</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
 
     <style>
       @import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
@@ -14,8 +21,9 @@
         --green: #2ccf6d;
       }
 
-      * {
-        color: white;
+      html,
+      body {
+        height: 100%;
       }
 
       body {
@@ -25,7 +33,6 @@
         font-family: "Nunito Sans";
         color: var(--blue);
         font-size: 1em;
-        height: 100vh;
       }
 
       button {
@@ -51,6 +58,17 @@
 
       h2 {
         font-weight: bold;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+      }
+      .row-left {
+        width: 50%;
+      }
+      .row-right {
+        width: 50%;
       }
 
       .hamburger-menu {
@@ -189,21 +207,9 @@
         width: 100%;
       }
 
-      /* Mobile */
       @media screen and (max-width: 768px) {
-        .root {
+        body {
           display: block;
-        }
-
-        .flex-wrap {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          margin: 0rem 2rem;
-        }
-
-        .btn.green {
-          margin-top: 2rem;
         }
 
         .container {
@@ -216,8 +222,8 @@
   <body>
     <main>
       <div class="container">
-        <div class="row flex-wrap">
-          <div class="col-md-6 align-self-center">
+        <div class="row">
+          <div class="col-md-6 align-self-center row-left">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -914,7 +920,7 @@
               </g>
             </svg>
           </div>
-          <div class="col-md-6 align-self-center">
+          <div class="col-md-6 align-self-center row-right">
             <h1>404</h1>
             <h2>UH OH! You're lost.</h2>
             <p>
@@ -922,7 +928,7 @@
               mystery. But you can click the button below to go back to the
               homepage.
             </p>
-            <button onclick="navigateHome()" class="btn green">HOME</button>
+            <button class="btn green">HOME</button>
           </div>
         </div>
       </div>

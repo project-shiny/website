@@ -103,6 +103,7 @@
 
   * {
     color: black;
+    background: white;
   }
 
   .root {

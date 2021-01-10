@@ -1,7 +1,11 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
+* {
   font-family: "Space Mono", Arial, Helvetica, sans-serif;
-} */
+}
+
+.mono {
+  font-family: "Space Mono", Arial, Helvetica, sans-serif;
+}
+
+.center {
+  text-align: center;
+}

@@ -21,3 +21,8 @@ jobs:
           BRANCH: gh-pages
           FOLDER: out
           CLEAN: true
+      - name: Cache Build Files
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}

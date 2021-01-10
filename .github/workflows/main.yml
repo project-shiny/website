@@ -8,21 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       - name: Install and Build
         run: |
           npm i
           npm run build
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: amondnet/vercel-action@v20
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: out
-          CLEAN: true
-      - name: Cache Build Files
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ github.token }}
+          vercel-args: '--prod'
+          vercel-org-id: ${{ secrets.ORG_ID }}
+          vercel-project-id: ${{ secrets.PROJECT_ID }}
+          working-directory: .

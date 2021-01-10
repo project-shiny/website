@@ -18,6 +18,7 @@ import * as I from "@material-ui/icons"
 import { useState } from "react"
 import { navItems } from "@utils"
 import { useRouter } from "next/router"
+import { isMobile } from "react-device-detect"
 
 const drawerWidth = 300
 
@@ -94,7 +95,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export function Container({ children, className }: Props) {
   const classes = useStyles()
   const theme = useTheme()
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(isMobile ? false : true)
   const router = useRouter()
 
   function toggleOpen() {

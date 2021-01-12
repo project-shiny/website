@@ -103,7 +103,6 @@ export function Container({ children, className }: Props) {
       setIsOpen(!e.matches)
     }
     setIsOpen(!query.matches)
-    console.log(isOpen)
   }, [])
 
   function toggleOpen() {

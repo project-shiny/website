@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app"
 import React from "react"
 import Head from "next/head"
+import PropTypes from "prop-types"
 import { ThemeProvider } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { theme } from "@utils"
@@ -30,4 +31,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </ThemeProvider>
     </>
   )
+}
+
+App.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired,
 }

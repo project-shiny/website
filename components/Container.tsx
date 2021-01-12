@@ -15,10 +15,9 @@ import {
   ListItemText,
 } from "@material-ui/core"
 import * as I from "@material-ui/icons"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { navItems } from "@utils"
 import { useRouter } from "next/router"
-import { isMobile } from "react-device-detect"
 
 const drawerWidth = 300
 
@@ -95,8 +94,13 @@ const useStyles = makeStyles((theme: Theme) =>
 export function Container({ children, className }: Props) {
   const classes = useStyles()
   const theme = useTheme()
-  const [isOpen, setIsOpen] = useState(isMobile ? false : true)
+  const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
+
+  useEffect(() => {
+    setIsOpen(!window.matchMedia("(max-width: 768px)").matches)
+    console.log(isOpen)
+  }, [])
 
   function toggleOpen() {
     setIsOpen(!isOpen)

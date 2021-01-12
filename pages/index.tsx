@@ -10,7 +10,7 @@ const useStyles = makeStyles(() =>
     },
     features: {
       marginTop: "1rem",
-      whiteSpace: "pre",
+      whiteSpace: "pre-wrap",
       textAlign: "start",
     },
     content: {

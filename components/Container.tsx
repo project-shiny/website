@@ -98,7 +98,11 @@ export function Container({ children, className }: Props) {
   const router = useRouter()
 
   useEffect(() => {
-    setIsOpen(!window.matchMedia("(max-width: 768px)").matches)
+    const query = window.matchMedia("(max-width: 768px)")
+    query.onchange = (e) => {
+      setIsOpen(!e.matches)
+    }
+    setIsOpen(!query.matches)
     console.log(isOpen)
   }, [])
 
